@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]>=2.0
+aiomysql
+redis>=5
+python-dotenv
+PyJWT
+bcrypt
+python-multipart

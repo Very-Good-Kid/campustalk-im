@@ -1,0 +1,21 @@
+{
+  "name": "campustalk-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CampusTalk 校园即时通讯系统 · 前端（Vue3 + Vite + Pinia）",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "vite": "^7.0.0"
+  }
+}

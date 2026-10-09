@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="PGIpMUd2r3MIpE7LAcOgDB">
+<head data-page-node-id="XOOFt8qx8w58qypZrXPOM7">
+<meta charset="UTF-8" data-page-node-id="QDxk4YCSQeDLt0FDz7iyW3" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="859zobETiWzi2yekepkx3n" />
+<title>CampusTalk 配色规范 · Design System Color v1.0</title>
+<style>
+  :root{
+    /* Brand — Campus Azure */
+    --brand-1:#EEF2FF; --brand-2:#DBE4FF; --brand-3:#B9C9FF; --brand-4:#8FA7FF;
+    --brand-5:#6687FF; --brand-6:#3F6BFF; --brand-7:#2E5DFF; --brand-8:#1F45D8;
+    --brand-9:#16339F; --brand-10:#0E2370;
+    /* Secondary — Teal */
+    --teal-1:#E6FBF7; --teal-3:#8FE6D6; --teal-5:#1FBFA6; --teal-6:#149E89; --teal-7:#0E7A69;
+    /* Secondary — Coral */
+    --coral-1:#FFF0EC; --coral-3:#FFB49E; --coral-5:#FF6A45; --coral-6:#E84D26; --coral-7:#C73A14;
+    /* Neutral (cool gray) */
+    --g-1:#FFFFFF; --g-2:#F7F8FA; --g-3:#F0F2F5; --g-4:#EAECF0; --g-5:#D8DBE3;
+    --g-6:#C2C7D2; --g-7:#9AA0B0; --g-8:#7A8194; --g-9:#5A6072; --g-10:#3D4252;
+    --g-11:#2A2E3A; --g-12:#1A1D26; --g-13:#12141C; --g-14:#0B0D13;
+    /* Functional */
+    --success:#1FA463; --success-bg:#E8F7EF; --success-tx:#0E7A47;
+    --warning:#E37318; --warning-bg:#FEF3E6; --warning-tx:#B45309;
+    --error:#E34D59;   --error-bg:#FCEDEC;   --error-tx:#B4231C;
+    --info:#2E5DFF;    --info-bg:#EEF2FF;    --info-tx:#16339F;
+    --font-cjk:"Noto Sans SC","PingFang SC",-apple-system,BlinkMacSystemFont,"Microsoft YaHei",sans-serif;
+    --font-lat:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --font-mono:"JetBrains Mono","Noto Sans Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-cjk);color:var(--g-12);background:var(--g-2);line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .mono{font-family:var(--font-mono);font-feature-settings:"tnum" 1}
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#0E2370 0%,#2E5DFF 55%,#6687FF 100%);color:#fff;padding:88px 0 72px}
+  .hero .eyebrow{font-family:var(--font-lat);font-weight:700;letter-spacing:4px;font-size:13px;color:#B9C9FF;text-transform:uppercase}
+  .hero h1{font-size:60px;line-height:1.1;font-weight:800;margin:18px 0 14px;letter-spacing:-1px}
+  .hero p{font-size:19px;color:#D8DBE3;max-width:640px}
+  .hero .meta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;color:#9AA0B0}
+  .hero .meta span{background:rgba(255,255,255,.08);padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+  /* Section */
+  section{padding:64px 0;border-bottom:1px solid var(--g-4)}
+  .sec-head{margin-bottom:36px}
+  .sec-head .num{font-family:var(--font-lat);font-weight:700;letter-spacing:3px;font-size:12px;color:var(--brand-7)}
+  .sec-head h2{font-size:32px;font-weight:800;margin:8px 0 10px;color:var(--g-12)}
+  .sec-head p{font-size:15px;color:var(--g-9);max-width:760px}
+  /* Philosophy cards */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pcard{background:var(--g-1);border:1px solid var(--g-4);border-radius:16px;padding:28px}
+  .pcard .n{font-family:var(--font-lat);font-weight:800;font-size:26px;color:var(--brand-7)}
+  .pcard h3{font-size:20px;font-weight:700;margin:10px 0 8px}
+  .pcard p{font-size:13px;color:var(--g-9)}
+  /* Brand hero block */
+  .brand-show{display:grid;grid-template-columns:340px 1fr;gap:36px;align-items:start}
+  .big-swatch{background:var(--brand-7);border-radius:24px;height:240px;position:relative;box-shadow:0 18px 40px -12px rgba(46,93,255,.45);overflow:hidden}
+  .big-swatch .lab{position:absolute;top:22px;left:24px;font-family:var(--font-lat);font-weight:700;letter-spacing:3px;font-size:12px;color:#fff}
+  .big-swatch .idx{position:absolute;left:24px;bottom:22px;font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.75)}
+  .brand-info h3{font-size:24px;font-weight:800}
+  .brand-info .role{font-family:var(--font-lat);font-weight:700;letter-spacing:3px;font-size:11px;color:var(--brand-7);margin:4px 0 16px}
+  .brand-info .kv{display:flex;gap:10px;align-items:baseline;margin:6px 0}
+  .brand-info .kv .k{font-family:var(--font-mono);font-size:13px;color:var(--g-8);min-width:62px}
+  .brand-info .kv .v{font-family:var(--font-mono);font-size:16px;color:var(--g-12)}
+  .brand-info .use{margin-top:16px;font-size:13px;color:var(--g-9);background:var(--g-2);border-radius:10px;padding:12px 14px}
+  /* scale strip */
+  .scale{display:flex;gap:8px;margin-top:32px;overflow:hidden;border-radius:14px}
+  .scale .s{flex:1;min-width:0}
+  .scale .s .c{height:96px;border-radius:10px}
+  .scale .s .nm{font-family:var(--font-mono);font-size:10px;color:var(--g-10);margin-top:6px}
+  .scale .s .hx{font-family:var(--font-mono);font-size:9px;color:var(--g-7);margin-top:1px}
+  .statemap{margin-top:22px;background:var(--g-2);border-radius:14px;padding:18px 20px;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:12.5px;color:var(--g-9)}
+  .statemap b{color:var(--g-12);font-weight:700}
+  /* two-col palettes */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .pal-block{background:var(--g-1);border:1px solid var(--g-4);border-radius:18px;padding:24px}
+  .pal-block h3{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px}
+  .pal-block h3 .dot{width:14px;height:14px;border-radius:50%}
+  .pal-block .sub{font-size:13px;color:var(--g-9);margin:6px 0 18px}
+  .sw-row{display:flex;align-items:center;gap:14px;margin:10px 0}
+  .sw-row .chip{width:54px;height:38px;border-radius:9px;flex:none;border:1px solid rgba(0,0,0,.06)}
+  .sw-row .txt{flex:1;min-width:0}
+  .sw-row .txt .t{font-size:13px;font-weight:600;color:var(--g-11)}
+  .sw-row .txt .m{font-family:var(--font-mono);font-size:11px;color:var(--g-7)}
+  /* neutral table */
+  .ntable{width:100%;border-collapse:collapse;background:var(--g-1);border-radius:14px;overflow:hidden;border:1px solid var(--g-4)}
+  .ntable th,.ntable td{padding:12px 16px;text-align:left;font-size:13px;border-bottom:1px solid var(--g-3)}
+  .ntable th{background:var(--g-2);font-weight:700;color:var(--g-10);font-size:12px}
+  .ntable td .chip{width:34px;height:22px;border-radius:6px;display:inline-block;vertical-align:middle;margin-right:10px;border:1px solid rgba(0,0,0,.06)}
+  .ntable td.mono{font-family:var(--font-mono);font-size:12px;color:var(--g-8)}
+  .ntable td .role{font-size:11px;color:var(--g-7)}
+  /* functional */
+  .func-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .func{border-radius:18px;padding:22px;border:1px solid var(--g-4);background:var(--g-1)}
+  .func h3{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .func h3 .dot{width:12px;height:12px;border-radius:50%}
+  .func .desc{font-size:12px;color:var(--g-9);margin-bottom:14px;min-height:34px}
+  .func .frow{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .func .frow .chip{width:42px;height:30px;border-radius:7px;flex:none}
+  .func .frow .lab{font-size:11px;color:var(--g-8)}
+  .func .frow .lab b{display:block;font-family:var(--font-mono);font-size:11px;color:var(--g-11);font-weight:500}
+  /* proportion */
+  .prop-bar{height:46px;border-radius:12px;overflow:hidden;display:flex;font-family:var(--font-lat);font-weight:700;font-size:13px;color:#fff}
+  .prop-bar .seg{display:flex;align-items:center;justify-content:center;padding:0 8px;white-space:nowrap}
+  .prop-legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px}
+  .prop-legend .it{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--g-10)}
+  .prop-legend .it .d{width:12px;height:12px;border-radius:3px}
+  .prop-legend .it b{font-family:var(--font-mono)}
+  /* components */
+  .comp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .comp{background:var(--g-1);border:1px solid var(--g-4);border-radius:18px;padding:24px}
+  .comp h3{font-size:17px;font-weight:800;margin-bottom:16px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:42px;padding:0 22px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:var(--font-cjk)}
+  .btn-primary{background:var(--brand-7);color:#fff}
+  .btn-primary:hover{background:var(--brand-6)}
+  .btn-primary:active{background:var(--brand-8)}
+  .btn-primary:disabled{background:var(--brand-2);color:var(--brand-3);cursor:not-allowed}
+  .btn-ghost{background:var(--g-1);color:var(--brand-7);border:1px solid var(--g-5)}
+  .btn-ghost:hover{border-color:var(--brand-3);background:var(--brand-1)}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .card-demo{background:var(--g-1);border:1px solid var(--g-4);border-radius:14px;padding:18px;transition:.2s}
+  .card-demo:hover{border-color:var(--brand-3);box-shadow:0 8px 24px -14px rgba(46,93,255,.4)}
+  .card-demo .t{font-weight:700;font-size:15px;margin-bottom:6px}
+  .card-demo .b{font-size:13px;color:var(--g-9)}
+  .tag{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:999px;font-size:12px;font-weight:600;margin:4px 6px 4px 0}
+  .tag-brand{background:var(--brand-1);color:var(--brand-9)}
+  .tag-success{background:var(--success-bg);color:var(--success-tx)}
+  .tag-warning{background:var(--warning-bg);color:var(--warning-tx)}
+  .tag-error{background:var(--error-bg);color:var(--error-tx)}
+  .tag-teal{background:var(--teal-1);color:var(--teal-7)}
+  .tag-coral{background:var(--coral-1);color:var(--coral-7)}
+  .field{margin:12px 0}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--g-10);margin-bottom:6px}
+  .field input{width:100%;height:42px;border:1px solid var(--g-5);border-radius:10px;padding:0 14px;font-size:14px;color:var(--g-12);font-family:var(--font-cjk);background:var(--g-1);outline:none}
+  .field input::placeholder{color:var(--g-7)}
+  .field input:focus{border-color:var(--brand-7);box-shadow:0 0 0 3px var(--brand-1)}
+  .field .err{font-size:12px;color:var(--error-tx);margin-top:6px}
+  /* dark mode */
+  .dark-panel{background:var(--g-14);border-radius:20px;padding:32px;color:#E8EAF0}
+  .dark-panel h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px}
+  .dark-panel p{font-size:13px;color:#9AA0B0;margin-bottom:20px}
+  .dark-show{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .dark-card{background:#14171F;border:1px solid #2A2F3A;border-radius:14px;padding:18px}
+  .dark-card .t{font-weight:700;color:#fff;font-size:15px;margin-bottom:8px}
+  .dark-card .b{font-size:13px;color:#9AA0B0}
+  .dark-swatch{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .dark-swatch .d{width:40px;height:40px;border-radius:9px;border:1px solid rgba(255,255,255,.08)}
+  .dark-mapping{margin-top:22px;background:#14171F;border:1px solid #2A2F3A;border-radius:14px;padding:18px 20px;font-size:13px;color:#C2C7D2;line-height:1.9}
+  .dark-mapping code{font-family:var(--font-mono);color:#8FA7FF;background:rgba(143,167,255,.12);padding:1px 6px;border-radius:5px}
+  /* a11y */
+  .a11y{width:100%;border-collapse:collapse;background:var(--g-1);border-radius:14px;overflow:hidden;border:1px solid var(--g-4)}
+  .a11y th,.a11y td{padding:13px 16px;font-size:13px;border-bottom:1px solid var(--g-3);text-align:left}
+  .a11y th{background:var(--g-2);font-weight:700;color:var(--g-10);font-size:12px}
+  .a11y td.mono{font-family:var(--font-mono);font-size:12px;color:var(--g-8)}
+  .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;font-family:var(--font-lat)}
+  .badge.pass{background:var(--success-bg);color:var(--success-tx)}
+  .badge.warn{background:var(--warning-bg);color:var(--warning-tx)}
+  .badge.fail{background:var(--error-bg);color:var(--error-tx)}
+  /* typography */
+  .font-note{background:var(--g-1);border:1px solid var(--g-4);border-radius:18px;padding:28px}
+  .font-note .stack{font-family:var(--font-mono);font-size:13px;background:var(--g-2);border-radius:10px;padding:16px;color:var(--g-10);line-height:1.8;margin:14px 0;word-break:break-all}
+  .font-sample{display:flex;gap:24px;flex-wrap:wrap;margin-top:18px}
+  .font-sample .fs{flex:1;min-width:240px}
+  .font-sample .fs .lab{font-size:12px;color:var(--g-7);margin-bottom:6px}
+  .font-sample .fs .big{font-size:30px;font-weight:700}
+  .font-sample .fs .small{font-size:13px;color:var(--g-9);margin-top:4px}
+  footer{padding:40px 0;color:var(--g-7);font-size:12px;text-align:center;font-family:var(--font-mono)}
+  .note{background:var(--info-bg);border:1px solid var(--brand-2);border-radius:12px;padding:14px 18px;font-size:13px;color:var(--brand-9);margin-bottom:30px}
+</style>
+</head>
+<body data-page-node-id="0h2uHhWliODBfBbJ5oJ4Cr">
+
+<div class="hero" data-page-node-id="i2uW086q7I4B14KIkrcdOJ">
+  <div class="wrap" data-page-node-id="AmlLiDDaJktVnJufNI06cI">
+    <div class="eyebrow" data-page-node-id="SCAobs4p5fNQGzEHim3IeF">DESIGN SYSTEM · COLOR · v1.0</div>
+    <h1 data-page-node-id="O4IHEBARHjtmIKBEHyEAZp">CampusTalk 配色规范</h1>
+    <p data-page-node-id="VBrTmhlIUSZf5BC1DWBqtb">为校园即时通讯系统设计 · 简约 · 精致 · 耐看。本规范覆盖主色、辅助色、中性色、功能色、使用比例、组件配色层级与深色模式适配。</p>
+    <div class="meta" data-page-node-id="NEgr7ezmMS3I8zGYG9KkcJ">
+      <span data-page-node-id="u1hIth7aUDLaGf2Ij9xcYC">v1.0 · 2026-09-09</span>
+      <span data-page-node-id="vQu43RXxANyH1CsGcqHZsG">Brand · Secondary · Functional · Neutral</span>
+      <span data-page-node-id="7xfj78XxnPjWmzIGP29GwK">WCAG AA · Dark Mode Ready</span>
+      <span data-page-node-id="ERPay1EPCzqkywWOdSMnFr">Inter / Noto Sans SC</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" data-page-node-id="9wuQoimspepOpqdNGGtJFV">
+
+  <!-- 00 说明 -->
+  <section data-page-node-id="sHtIoXZHx0CTA5pD1mIhJO">
+    <div class="note" data-page-node-id="3PKJLsck2Q1LI7AGf3NY6B">
+      <b data-page-node-id="D35HTuzphdazfshHFHVyfl">关于预览打不开：</b>此前在画布（Ardot）上多次出现的是瞬时网络中断（HTTP 499），并非登录或权限问题，文件本身完好。本页为独立 HTML，浏览器直接打开即可，无需登录、不依赖画布。
+    </div>
+  </section>
+
+  <!-- 01 设计理念 -->
+  <section data-page-node-id="1ZyV3JPRx6gBZVxfaE1RHu">
+    <div class="sec-head" data-page-node-id="Xboj04rJw3zLm1NebZpope">
+      <div class="num" data-page-node-id="9ccBwa6vsSHvt0oDd68yGi">01 / 设计理念</div>
+      <h2 data-page-node-id="zSbRiHio4ko7SzaT5CPJtd">克制中性，让沟通本身被看见</h2>
+      <p data-page-node-id="moOKOMu4it6xlrH3pa1tgZ">校园 IM 是高频、长时间停留的工具，色彩必须承担"不打扰"的职责——主色用于点睛而非铺底，中性色撑起九成界面，功能色只在需要被看见时出现。</p>
+    </div>
+    <div class="grid-3" data-page-node-id="z7g1BGLFJWKWHebk78vpDS">
+      <div class="pcard" data-page-node-id="xiVj8uvdHreg3lS2LlfWH7"><div class="n" data-page-node-id="cNet8WV1tTnbKQCwY4crFi">01</div><h3 data-page-node-id="kdfsnQXmWaEk7d0DtjYnLP">信任优先</h3><p data-page-node-id="eZRYyEtwHiv9OccDFkdqlv">蓝色是 IM 产品的共识，选用更年轻的青蓝——在保留沟通可靠感的同时，与微信绿 / 钉钉蓝 / 腾讯蓝拉开距离，贴合校园身份。</p></div>
+      <div class="pcard" data-page-node-id="tcw5o0PfQzgPQ53toqUAsg"><div class="n" data-page-node-id="m3i5min2FEJqESwlGMtt9F">02</div><h3 data-page-node-id="VpCs8MrCJhB922k8p2z6AN">克制中性</h3><p data-page-node-id="zvayXuCvseXcjEcTWAN7f9">九成界面由白底与冷灰阶承担。主色仅在主操作按钮、链接、激活态出现，辅助色留给兴趣频道 / 特别关注等差异化场景。</p></div>
+      <div class="pcard" data-page-node-id="V4KxIu1grwgCzXWfPuAXfm"><div class="n" data-page-node-id="ebEvfiz1qizxxRrQOwgQEz">03</div><h3 data-page-node-id="AviBTG590LmwQkX8baGrsF">清晰可读</h3><p data-page-node-id="uIB8BgAXlbZDhgTN4J3Ydb">正文 ≥ 4.5:1、大字 ≥ 3:1，满足 WCAG AA。功能色饱和度统一，避免红绿混淆，符合内容合规的可读性要求。</p></div>
+    </div>
+  </section>
+
+  <!-- 02 主色 -->
+  <section data-page-node-id="OBESMkJjcvwU1H4uoXvSBa">
+    <div class="sec-head" data-page-node-id="gjfd66K2aNuNYxerBnyPI1">
+      <div class="num" data-page-node-id="PDZaGb1MRCL1CZ775GKmK5">02 / 主色 · BRAND</div>
+      <h2 data-page-node-id="OHsxYeuUAYeVauYFuZMn7a">校园青蓝 · Campus Azure</h2>
+      <p data-page-node-id="vEitgj89xkXSdK7OyxJ8TF">承载主操作、链接、激活态等品牌信号。10 级色阶覆盖 light / hover / active / disabled / dark 全交互状态。</p>
+    </div>
+    <div class="brand-show" data-page-node-id="0IlzXWwC4F5KLJhSC1Gg2l">
+      <div class="big-swatch" data-page-node-id="HHAsmqoxo6tUoI6iMDbPTE">
+        <div class="lab" data-page-node-id="f30MfGy7EvI9xLx2xy1JnC">PRIMARY · 校园青蓝</div>
+        <div class="idx" data-page-node-id="JgHWsQNcTZdgjQR3rITFFY">brand-7 · #2E5DFF</div>
+      </div>
+      <div class="brand-info" data-page-node-id="Gez3ru9Zc9ZcenDHCW1Dj7">
+        <h3 data-page-node-id="Gy3DRq70CHdOD2ANaNNGe6">校园青蓝</h3>
+        <div class="role" data-page-node-id="SfPOWxHvSOrh9VN2ZmfzsH">BRAND · PRIMARY</div>
+        <div class="kv" data-page-node-id="Q9NeNRfXPVQhVhiZMeHCmH"><span class="k" data-page-node-id="NdOzTCsQcKgUnCp9Amd6HB">HEX</span><span class="v" data-page-node-id="rLurIoqf39mo3YRAAw8fc8">#2E5DFF</span></div>
+        <div class="kv" data-page-node-id="3IODzKJKrXJkG54ZnnkvfW"><span class="k" data-page-node-id="8Ug8hk4V995vAlv3EOJw0d">RGB</span><span class="v" data-page-node-id="dINjdPvXaB0lD96D70Zo3t">rgb(46, 93, 255)</span></div>
+        <div class="kv" data-page-node-id="7IO3iNV4cih5NfrmaKqoFc"><span class="k" data-page-node-id="m3H0Xzy1knaKXub1OwETaD">HSL</span><span class="v" data-page-node-id="yeAD8lC7QvJOwoPCZka0A6">hsl(226°, 100%, 59%)</span></div>
+        <div class="use" data-page-node-id="QndjlHycgnuVxxvDiy4fu0"><b data-page-node-id="ZhQHS1ABatSGBRQV5uLHzE">适用：</b>主操作按钮、文字链接、激活态、发送气泡、品牌图标。设计理由：比企业蓝亮一档，呼应青春校园，且避开与微信绿、钉钉蓝、腾讯蓝的撞色。</div>
+      </div>
+    </div>
+    <div class="scale" id="brandScale" data-page-node-id="j9eRcCzCA3Uq7rG3Cjytwe"></div>
+    <div class="statemap" data-page-node-id="BB12U2HLYZ6dQRdnZHrlBm">
+      <span data-page-node-id="Hv4kjgLM92x7RlU2ygpiwR"><b data-page-node-id="3H5h7g7uH8FgmL3XqsNouZ">brand-1</b> Light / Disabled 底纹</span>
+      <span data-page-node-id="LL1xVeycH909j4m5avN6N9"><b data-page-node-id="IK3FjaYGlqafWoJvbFTWsk">brand-6</b> Hover</span>
+      <span data-page-node-id="1lKuPaluAqtwkvr25xKpNf"><b data-page-node-id="ofe5kSnVmit5gnppzH3Hax">brand-7</b> Normal（基准）</span>
+      <span data-page-node-id="ONi1tr8T5yl75wwQghhSo5"><b data-page-node-id="paxHIKtFIjX6VjKG7OFTOD">brand-8</b> Active</span>
+      <span data-page-node-id="QTbNr8D4k2x3YZRAUY7OOH"><b data-page-node-id="xuP3StkImgC79xkbkGiZR1">brand-9</b> 文字链接</span>
+      <span data-page-node-id="unJZexUh3YX6PmseeURihS"><b data-page-node-id="J9GWbPZ4sjaQ7A0obJ56Xb">brand-10</b> 深底标题</span>
+    </div>
+  </section>
+
+  <!-- 03 辅助色 -->
+  <section data-page-node-id="1EVOVsSGPaLC02A8HwRxkZ">
+    <div class="sec-head" data-page-node-id="qKApuc5g0iLMkN8ROlqaYd">
+      <div class="num" data-page-node-id="QG2q99jdcKJMnCPKVX0jdn">03 / 辅助色 · SECONDARY</div>
+      <h2 data-page-node-id="sX5ViX3XjzACBLAu6bGdE4">青碧 + 珊瑚橙</h2>
+      <p data-page-node-id="qxUHBAaGdAhsEtG8SUeRPN">两种辅助色专用于差异化能力：青碧（Teal）对应"兴趣频道 / AI 总结"，珊瑚橙（Coral）对应"未读红点 / 特别关注 / 置顶话题"等高亮但不警告的场景。</p>
+    </div>
+    <div class="grid-2" data-page-node-id="cXXQ5qnl5QLlSpVuIE98xZ">
+      <div class="pal-block" data-page-node-id="LyFbbBJ1RKPNmZOAgVW3x7">
+        <h3 data-page-node-id="DRCzZp97BJvoaXPHSKVf1d"><span class="dot" style="background:var(--teal-5)" data-page-node-id="wvNQCLG9OH8ZzRF6LI6RFZ"></span>校园青碧 · Campus Teal</h3>
+        <div class="sub" data-page-node-id="afyumsjYVt41562LffrVdT">兴趣频道、AI 总结、在线状态、成功辅助。低饱和青绿，与主蓝形成冷色系呼应。</div>
+        <div class="sw-row" data-page-node-id="OauzBAQ1W4cEHnWx71Gem5"><span class="chip" style="background:var(--teal-1)" data-page-node-id="mzFW4DkXlUFARCsGUUEKyZ"></span><span class="txt" data-page-node-id="PbopLvr2TTnYotMlHddcDr"><span class="t" data-page-node-id="iwKsnisClgjA8ISUaFsJN1">teal-1 · 浅底</span><span class="m" data-page-node-id="4JlD0CAlGVZzaBsLu0Sjj7">#E6FBF7 · rgb(230,251,247)</span></span></div>
+        <div class="sw-row" data-page-node-id="01u0ZdtVp6xBw5H8QhZFoJ"><span class="chip" style="background:var(--teal-3)" data-page-node-id="EXVTWSvZE53CTyTNa6NrM8"></span><span class="txt" data-page-node-id="vScN4NOjZBWcIrzYuCJLFY"><span class="t" data-page-node-id="Dfgloc5pnTI2RATHIAB3qU">teal-3 · 浅填充</span><span class="m" data-page-node-id="OAN1ddhN24sIBFD8oz4CC4">#8FE6D6 · rgb(143,230,214)</span></span></div>
+        <div class="sw-row" data-page-node-id="bEeosQMjkZn0yQMP7Yt9Fs"><span class="chip" style="background:var(--teal-5)" data-page-node-id="BfnM6A03BZWtBBkEyodEIE"></span><span class="txt" data-page-node-id="m8mHCmmhUG8ZxJrrihlB48"><span class="t" data-page-node-id="r3SWUBo4QGhJjRj4CUgNow">teal-5 · 正常（基准）</span><span class="m" data-page-node-id="Fm7HNUfL1S2lD9moE3B60S">#1FBFA6 · rgb(31,191,166)</span></span></div>
+        <div class="sw-row" data-page-node-id="ORN7jjg40RDCOMoBd5MEsg"><span class="chip" style="background:var(--teal-6)" data-page-node-id="CA5Wmr4LhPlk5593VCUGX9"></span><span class="txt" data-page-node-id="HqFppi8IgGKvEmY3mrSxhO"><span class="t" data-page-node-id="LEqDbdOcq6KwwhffyVLVAS">teal-6 · 激活</span><span class="m" data-page-node-id="lBY4a5OuJeCE0twyUk8zwq">#149E89 · rgb(20,158,137)</span></span></div>
+        <div class="sw-row" data-page-node-id="RXkeaauBjuJG7TQMznk3bb"><span class="chip" style="background:var(--teal-7)" data-page-node-id="qi5zkRYifVjw3lui1JOBUB"></span><span class="txt" data-page-node-id="90su15qIGBNh62JWf8ygqM"><span class="t" data-page-node-id="jpeEp64iokirlp5Vn7wiDP">teal-7 · 文字</span><span class="m" data-page-node-id="LNJ84zp4HUDeQdwi0CAVTM">#0E7A69 · rgb(14,122,105)</span></span></div>
+      </div>
+      <div class="pal-block" data-page-node-id="LoDHPD6me71c9Z9QsKuLx8">
+        <h3 data-page-node-id="SouvLPZmh2U9cGSC0azfCN"><span class="dot" style="background:var(--coral-5)" data-page-node-id="KY2exTm8JLHXpHDEqPk9Do"></span>校园珊瑚 · Campus Coral</h3>
+        <div class="sub" data-page-node-id="xUr0V81KqH0KPUeiHO8gTz">未读标记、特别关注、置顶话题、活动入口。暖橙用于"高亮提醒"而非"错误警告"，避免与红色功能色混淆。</div>
+        <div class="sw-row" data-page-node-id="H3lLus2f0cBpCEtZWkA22o"><span class="chip" style="background:var(--coral-1)" data-page-node-id="y1Tih9mPTV2TfqRHv3NzUN"></span><span class="txt" data-page-node-id="AP3HABg9VFd7ZXrxTixs9z"><span class="t" data-page-node-id="8CyZVCLvAcdLifvUUTy7Cb">coral-1 · 浅底</span><span class="m" data-page-node-id="0EY8g0ALwpN1FB3od5cVlE">#FFF0EC · rgb(255,240,236)</span></span></div>
+        <div class="sw-row" data-page-node-id="Tb0Ch0OKi9Smpf6WpuRoII"><span class="chip" style="background:var(--coral-3)" data-page-node-id="ULgYWe1kepGr6lIrlfsECe"></span><span class="txt" data-page-node-id="7Ysr2Nsvj4pA1Zrwf1AUtY"><span class="t" data-page-node-id="cXOf82SGZgL2qrKnKkPkwn">coral-3 · 浅填充</span><span class="m" data-page-node-id="Q2LdEdDULWCkajiUMobqfZ">#FFB49E · rgb(255,180,158)</span></span></div>
+        <div class="sw-row" data-page-node-id="GHLtTSlAIoindIrGuJzBgB"><span class="chip" style="background:var(--coral-5)" data-page-node-id="NCbPt3MeFGdiOJEzENE10w"></span><span class="txt" data-page-node-id="O1Pa2yAATSmWxoqyZ2HhOC"><span class="t" data-page-node-id="C7yLchnvZUqPnnWtrvyekH">coral-5 · 正常（基准）</span><span class="m" data-page-node-id="Phkqi582GyTDRFMjU51i1G">#FF6A45 · rgb(255,106,69)</span></span></div>
+        <div class="sw-row" data-page-node-id="axnZfeyqU4C0Z1qwAohay7"><span class="chip" style="background:var(--coral-6)" data-page-node-id="34W0dLEo7a9TCAF7YwpIv8"></span><span class="txt" data-page-node-id="KZEMPn4F7pNn5mu6rzHxHE"><span class="t" data-page-node-id="jk3BeOweGIyhUknSmutMRt">coral-6 · 激活</span><span class="m" data-page-node-id="4y7ofyb6lKUKIENcn9U4GE">#E84D26 · rgb(232,77,38)</span></span></div>
+        <div class="sw-row" data-page-node-id="RGnRsgzh0sRGiZBMoyOOxI"><span class="chip" style="background:var(--coral-7)" data-page-node-id="3zSGa7WyauNCd7CyFIJLAS"></span><span class="txt" data-page-node-id="33AAomAO6XeS9BczTBVShP"><span class="t" data-page-node-id="jyJx2NCDpvDWxhnUGOzllS">coral-7 · 文字</span><span class="m" data-page-node-id="xanvlX3GoQ3gPtcHICQix9">#C73A14 · rgb(199,58,20)</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 中性色 -->
+  <section data-page-node-id="7DTx4YCIME1DKhOJDzm4C3">
+    <div class="sec-head" data-page-node-id="f1CXFFUIhvBAWoBycGVZKx">
+      <div class="num" data-page-node-id="kCe94FDcef3g5UvZN7Khwc">04 / 中性色 · NEUTRAL</div>
+      <h2 data-page-node-id="hihyzWbFtVkTx8JefGzGrp">冷灰阶骨架</h2>
+      <p data-page-node-id="nCtWimxszgeeFkxjWc1wTz">14 级冷灰阶承担背景、文字、边框、分割线。灰相偏冷（略带蓝）以契合校园产品的清爽感，与 TDesign 灰阶同源、仅微调色温。</p>
+    </div>
+    <table class="ntable" data-page-node-id="3eCPUqbzNZfSRjwAqlybFm">
+      <thead data-page-node-id="6MiCfVjMeUCD9zX0RXdgI0"><tr data-page-node-id="iIcWSiv4XEv9Q4TbNj8FXZ"><th data-page-node-id="qEAOVqzy1bjRyzY0zWxMVo">色阶</th><th data-page-node-id="WwuCxi2xwgWkeTtXwQGND9">HEX</th><th data-page-node-id="DRiewmzPfTdqYC5N9YBSZ8">RGB</th><th data-page-node-id="9yVQEOguFJ7fhb0o0EiEUt">角色 / 适用场景</th></tr></thead>
+      <tbody id="neutralBody" data-page-node-id="xlZPwvnlEBRoeEDEIBmyla"></tbody>
+    </table>
+  </section>
+
+  <!-- 05 功能色 -->
+  <section data-page-node-id="Y463wECQeZQ1Lr1iNyBNWN">
+    <div class="sec-head" data-page-node-id="UVx5Be4jlFrWqrRAMFKEvU">
+      <div class="num" data-page-node-id="NhCnyNRjCssgBnUuWoHFNn">05 / 功能色 · FUNCTIONAL</div>
+      <h2 data-page-node-id="29fWaULBBOlTIa7cHqL4E6">状态语义色</h2>
+      <p data-page-node-id="gCKbhYNYDw0RSe1OXXNbVI">成功 / 警告 / 错误 / 信息四类状态。每类给出"正常色 + 浅底（背景/徽标）+ 文字色"三件套，确保浅底上文字对比度达标。注：信息色复用品牌青蓝，控制整体色相数量。</p>
+    </div>
+    <div class="func-grid" data-page-node-id="v6oCjrYDuDXAk0dXc4mZAf">
+      <div class="func" data-page-node-id="A94bBH0IEQwMt2nwjRGIxC">
+        <h3 data-page-node-id="CCADPS1clxtsSRKwZ4eJHR"><span class="dot" style="background:var(--success)" data-page-node-id="ojff0ldmKKS4gGvrji1YpO"></span>成功 Success</h3>
+        <div class="desc" data-page-node-id="7oYDwoFKS6nDuseHaAtSft">操作成功、在线、已读、通过合规。</div>
+        <div class="frow" data-page-node-id="KVJ9W1zqOqCvzBa2vLqcE4"><span class="chip" style="background:var(--success)" data-page-node-id="qjpGW80e2WBNU4IOXdmcZm"></span><span class="lab" data-page-node-id="TMEzR2SKC6G1TMN8hmRahO">正常<b data-page-node-id="sxEPBGGRkr9DN1cOEU3jAv">#1FA463</b></span></div>
+        <div class="frow" data-page-node-id="jcyZiOnfDaQlA6BpB4ubfU"><span class="chip" style="background:var(--success-bg)" data-page-node-id="Yl2ZEXdt0ffsXmry1uzFo1"></span><span class="lab" data-page-node-id="e3euriW7jW8AeFzTba5vFR">浅底<b data-page-node-id="XkfDeR0qJGvcX4qQjYcHHy">#E8F7EF</b></span></div>
+        <div class="frow" data-page-node-id="ItftLLhcrPfYH97CnE3Wo9"><span class="chip" style="background:var(--success-tx)" data-page-node-id="tcgAUcAequdAggSzrhOM66"></span><span class="lab" data-page-node-id="AfDCEA05ni2EXlFJGGSFAj">文字<b data-page-node-id="LviJguTzc7I5F5PNwKBdxl">#0E7A47</b></span></div>
+      </div>
+      <div class="func" data-page-node-id="tChv342kU7IKhNHPtGiXO3">
+        <h3 data-page-node-id="mOy3VF1v9TUKTsC4lGVXlC"><span class="dot" style="background:var(--warning)" data-page-node-id="BFeIBBlVnu27b5MjZNqoQH"></span>警告 Warning</h3>
+        <div class="desc" data-page-node-id="8XXva61pQJxG62iYSiZIY8">谨慎操作、敏感词提示、待审核。</div>
+        <div class="frow" data-page-node-id="GgTBcQNdQ11JmqoZxusDnP"><span class="chip" style="background:var(--warning)" data-page-node-id="CHlV1t6Re9Mq5dRvK5yDkg"></span><span class="lab" data-page-node-id="zsyK3bA1T5S8GTbCoWiYtu">正常<b data-page-node-id="BmjLTJDYVBA1sNlfsG29Ot">#E37318</b></span></div>
+        <div class="frow" data-page-node-id="R0qLk8YV3z9Fqz1FAwMnWB"><span class="chip" style="background:var(--warning-bg)" data-page-node-id="H5FtSIQpWIpUPGOU4Y34s6"></span><span class="lab" data-page-node-id="gNIIEL1YeCUHF2XshtnQ9r">浅底<b data-page-node-id="RzYcCG3w4XBWr9dpf57dDG">#FEF3E6</b></span></div>
+        <div class="frow" data-page-node-id="WYr5t5M9RF53WESxBJdRPj"><span class="chip" style="background:var(--warning-tx)" data-page-node-id="NhzMhEewCtzxsesmfUYB2H"></span><span class="lab" data-page-node-id="xr6oBVFR2WOtROkuYzS45Y">文字<b data-page-node-id="5Y6ppwpaFEYKEJ5pdBj3mo">#B45309</b></span></div>
+      </div>
+      <div class="func" data-page-node-id="5iytpaU0ZcwlwRfUOlz1F6">
+        <h3 data-page-node-id="CBYB212zZD4TERIDqAA6RD"><span class="dot" style="background:var(--error)" data-page-node-id="OzBAZJM9zw0vVobyHy398q"></span>错误 Error</h3>
+        <div class="desc" data-page-node-id="yNWqzJ1Tg19SfqLF5JPtm5">发送失败、违规、封禁、校验不通过。</div>
+        <div class="frow" data-page-node-id="5SdHVdYcJJDtnUZdh9SbjL"><span class="chip" style="background:var(--error)" data-page-node-id="i98i56GIE9K3bLgAo35SCc"></span><span class="lab" data-page-node-id="5js9cIqTGsDrpVo07kH4HP">正常<b data-page-node-id="vcV6rTQf42C3RjUlpNnbdB">#E34D59</b></span></div>
+        <div class="frow" data-page-node-id="0mPTRI61XaXVQclDXEgmRs"><span class="chip" style="background:var(--error-bg)" data-page-node-id="iOxLVXpsxdiUcbiamU3HTB"></span><span class="lab" data-page-node-id="MSGzOhBWIDO2mNSoMRXZm5">浅底<b data-page-node-id="2rWzLoueJ1UY962XqhuUG5">#FCEDEC</b></span></div>
+        <div class="frow" data-page-node-id="KOFN8e08jV4VNRbozKIbBr"><span class="chip" style="background:var(--error-tx)" data-page-node-id="byFTwdlrBpAoRXNjjlHkk9"></span><span class="lab" data-page-node-id="nEe2Trm5wc0dYdBKm8tcfE">文字<b data-page-node-id="A7KFXjP1VHCxrhmYyeXz19">#B4231C</b></span></div>
+      </div>
+      <div class="func" data-page-node-id="p5lBwH6dxxAQlcWwT8dTUe">
+        <h3 data-page-node-id="TQ5sZ9f1WyG4Jg58bpeACS"><span class="dot" style="background:var(--info)" data-page-node-id="F0AV2PbHkBnE4E8GJneS9g"></span>信息 Info</h3>
+        <div class="desc" data-page-node-id="QtI6r5XeY78vfHT1NfWQjZ">系统通知、新功能引导、帮助。</div>
+        <div class="frow" data-page-node-id="GPhWFV2ka08QesRdQF7tzL"><span class="chip" style="background:var(--info)" data-page-node-id="PYkiBqYlMCQjOPmBGOt5DD"></span><span class="lab" data-page-node-id="5lUk9Iv22TDRw17mlTPK2v">正常<b data-page-node-id="QhCfGG6NCJJjrWgOIKQdFQ">#2E5DFF</b></span></div>
+        <div class="frow" data-page-node-id="c7AD3YNFPRJO6N8hQA2C39"><span class="chip" style="background:var(--info-bg)" data-page-node-id="989MhYXkOBj5lVysHu01hq"></span><span class="lab" data-page-node-id="ezLFE4fKp0KqGBsS0TddLz">浅底<b data-page-node-id="LSlFguA14nnowEXnLEluLS">#EEF2FF</b></span></div>
+        <div class="frow" data-page-node-id="Ade8C30wPwqobYFjCDHVUp"><span class="chip" style="background:var(--info-tx)" data-page-node-id="OwOD169YpHqwmLNpprFdND"></span><span class="lab" data-page-node-id="VBvFqvgYNgdqHFaVkAAMDx">文字<b data-page-node-id="5SVpVJFoyW6BZ502r0ot5x">#16339F</b></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 使用比例 -->
+  <section data-page-node-id="IEkuowu1h7BK5ph1EAJkgC">
+    <div class="sec-head" data-page-node-id="vmhWfaJ4HHwHWf66shApk0">
+      <div class="num" data-page-node-id="4cJgY2j384uHDfPtSPDWSV">06 / 使用比例 · RATIO</div>
+      <h2 data-page-node-id="dhdO0XIimEBP3XFpHjjUk6">色彩面积分配</h2>
+      <p data-page-node-id="k6k1C3MgTadviE6Lb27akf">遵循"中性为主、品牌点睛、功能克制"的原则。中性色占据绝对面积，品牌色用于关键操作，辅助色与功能色仅作小面积信号。</p>
+    </div>
+    <div class="prop-bar" data-page-node-id="TlWtQcnK1Wpkqn3J1BPpoZ">
+      <div class="seg" style="background:var(--g-3);color:var(--g-10);flex:70" data-page-node-id="zQidFgWl4yrGrp9g3OEcpq">中性 70%</div>
+      <div class="seg" style="background:var(--brand-7);flex:20" data-page-node-id="59BO0jMeFmECoUL6qlcVMt">主色 20%</div>
+      <div class="seg" style="background:var(--teal-5);flex:7" data-page-node-id="HfLwCBT4y2Zn9y7EHS3yUf">辅助 7%</div>
+      <div class="seg" style="background:var(--warning);flex:3" data-page-node-id="VXDXRYLUtjrofE6k08LcdD">功能 3%</div>
+    </div>
+    <div class="prop-legend" data-page-node-id="2SBjUsafa7PusjpDcLPIip">
+      <div class="it" data-page-node-id="3AISRXMIJJ6YbktCa4bY9T"><span class="d" style="background:var(--g-3)" data-page-node-id="VfkruAU9iVeTdI9PHWhJRl"></span><b data-page-node-id="JICO2VcVLjnVcy3duY89gu">中性 70%</b> 背景、卡片、文字、边框、分割线</div>
+      <div class="it" data-page-node-id="VAdc7oIQNAyFLzNzatA2fn"><span class="d" style="background:var(--brand-7)" data-page-node-id="94jcEgDvWuNr1YN8fjxfuf"></span><b data-page-node-id="HqB7uB7HU3nHqXiollcXZG">主色 20%</b> 主按钮、链接、激活态、品牌元素</div>
+      <div class="it" data-page-node-id="QcP62HAqDetgskAL6tg9Gi"><span class="d" style="background:var(--teal-5)" data-page-node-id="HVXrGwXmgt9hZyoNXOZuBE"></span><b data-page-node-id="yfPF8bMMWXzm3KMGsoaPaN">辅助 7%</b> 兴趣频道、AI 总结、特别关注</div>
+      <div class="it" data-page-node-id="lwABsyHzXfxEfUmsygTBNY"><span class="d" style="background:var(--warning)" data-page-node-id="dX8SBuwAaVyEcFNw10IAn6"></span><b data-page-node-id="1SBvUWI7tdSIG7P5VzK7MC">功能 3%</b> 成功/警告/错误/信息状态提示</div>
+    </div>
+  </section>
+
+  <!-- 07 组件配色 -->
+  <section data-page-node-id="WTvK6l2ZW5VK4cK4HJwmTY">
+    <div class="sec-head" data-page-node-id="skGPWdZSraeNbGLor8fYVM">
+      <div class="num" data-page-node-id="qeSB5QdWE35eU75BWMSwCV">07 / 组件配色 · COMPONENTS</div>
+      <h2 data-page-node-id="ABTffjRdEElarKch71Gr2r">常见组件层级与搭配</h2>
+      <p data-page-node-id="PnfO6SMbgQ5LTfCkkEil8E">基于按钮、卡片、标签、表单四类高频组件的配色层级示例。原则：容器用中性 + 细边框，品牌色只落在可点击主体，状态色只落在语义明确的元素。</p>
+    </div>
+    <div class="comp-grid" data-page-node-id="BCNUDRb1LzrwBO7zFkbL1q">
+      <div class="comp" data-page-node-id="OIQiyjS1XOjwld3eDmy2Jh">
+        <h3 data-page-node-id="0GHlzV82uUZPXujsx6seea">按钮 Button</h3>
+        <div class="btn-row" data-page-node-id="rSShpaQ03d2HVu3GIUuE0D">
+          <button class="btn btn-primary" data-page-node-id="ZEyUH9hDICTywTaypHFxJh">发送消息</button>
+          <button class="btn btn-primary" disabled data-page-node-id="na3KJHdw8wxxGQPGDdvamq">已禁用</button>
+          <button class="btn btn-ghost" data-page-node-id="nyGvQMsRbXXENSAyuKJoYR">取消</button>
+        </div>
+        <div class="btn-row" style="font-size:12px;color:var(--g-8)" data-page-node-id="LNjnZrOir9ubgI2WChCeaH">
+          <span data-page-node-id="La2kTA0xGHRHj5vkeaGTpE">主按钮：brand-7 底 / 白字 · Hover brand-6 · Active brand-8 · Disabled brand-2 底 + brand-3 字</span>
+        </div>
+        <div class="btn-row" style="font-size:12px;color:var(--g-8);margin-top:2px" data-page-node-id="B353WqLV2qxRC52qwlH5ol">
+          <span data-page-node-id="BZVCPIFBNOaLwwRiBVQMoW">次按钮：白底 / brand-7 字 / g-5 边 · Hover brand-1 底 + brand-3 边</span>
+        </div>
+      </div>
+      <div class="comp" data-page-node-id="W4AkF3zahII3m868kBUVw2">
+        <h3 data-page-node-id="tghonb8TOUGK0Ee5FBdlH1">卡片 Card</h3>
+        <div class="card-demo" data-page-node-id="IEjclqac7vDF7sTkrsG5VK">
+          <div class="t" data-page-node-id="QTyrLboaXqDtSA4zwFHYVy">班级群 · 软件工程2401</div>
+          <div class="b" data-page-node-id="FhW2XGSEEjyHmRKZFoGWBH">12 条新消息 · 3 人正在输入…</div>
+        </div>
+        <div class="btn-row" style="font-size:12px;color:var(--g-8);margin-top:14px" data-page-node-id="D1r37ZH1c0lVUPKB44pUOm">
+          <span data-page-node-id="eNhmWa4JcrpwCT2R4yHZGc">白底 g-1 / 边框 g-4 / Hover 边框 brand-3 + 青蓝柔影 · 标题 g-12、正文 g-9</span>
+        </div>
+      </div>
+      <div class="comp" data-page-node-id="ELswCwVY7knkgVbEe81jF7">
+        <h3 data-page-node-id="dShR4H18If7iJ4QoNXLQfk">标签 Tag</h3>
+        <div data-page-node-id="GA2vGreQvwEVz7BCm4hS5G">
+          <span class="tag tag-brand" data-page-node-id="KJsdHSX82WvgXGd9AxC6fe">官方</span>
+          <span class="tag tag-teal" data-page-node-id="OOX4Tak8B8yp2V7lzvWG1O">兴趣频道</span>
+          <span class="tag tag-coral" data-page-node-id="34O8u9jckz3krP7CtHsqrw">特别关注</span>
+          <span class="tag tag-success" data-page-node-id="504Ss5TQdRlADVDp4KrIPd">已实名</span>
+          <span class="tag tag-warning" data-page-node-id="xHSReyU6gYyTqfn5bd1b3i">待审核</span>
+          <span class="tag tag-error" data-page-node-id="YEHeAnsMmBNNAtklk579jT">已违规</span>
+        </div>
+        <div class="btn-row" style="font-size:12px;color:var(--g-8);margin-top:14px" data-page-node-id="eydvW1PSsoUM5SaCH4Pzlm">
+          <span data-page-node-id="td7R7ZKPFLXRCM5AWGeNGM">浅底 + 同系深字（tint 模式）：brand-1/brand-9、teal-1/teal-7、coral-1/coral-7、success-bg/success-tx…</span>
+        </div>
+      </div>
+      <div class="comp" data-page-node-id="CpOVkE37Q9azQ9GxGe0aiQ">
+        <h3 data-page-node-id="PWnxSFreGyLY3VroDq91fE">表单 Form</h3>
+        <div class="field" data-page-node-id="58K89rXEKcw4cQ8kjsV5hg">
+          <label data-page-node-id="UX3WX0T8Pz0xqMXqJC8u74">学号</label>
+          <input value="2024110xxx" data-page-node-id="MuRaJX2eM0bRG3Zdj3ZbTM" />
+        </div>
+        <div class="field" data-page-node-id="Y2RImkfXJqtZAQfCpF9PRa">
+          <label data-page-node-id="Jx5mR9GdDDSVjDBaoO6lZI">群昵称</label>
+          <input placeholder="请输入群昵称" data-page-node-id="tD7ziUufzDDduW6tHBgD6r" />
+          <div class="err" data-page-node-id="41tHcrAK3PpX55D9Lkt29k">昵称含敏感词，请修改后重试</div>
+        </div>
+        <div class="btn-row" style="font-size:12px;color:var(--g-8);margin-top:4px" data-page-node-id="jvd3bnBoPIBrusATJajdHp">
+          <span data-page-node-id="eAcMqrZYexBbFRAz2Pbq4t">输入：白底 / g-5 边 / Focus brand-7 边 + brand-1 环 · 占位 g-7 · 错误文字 error-tx + error-bg</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 深色模式 -->
+  <section data-page-node-id="bMYgwYw3BPSAR3VGz63BdA">
+    <div class="sec-head" data-page-node-id="QwpFl3wnUn8YNfOFEJHwHg">
+      <div class="num" data-page-node-id="MQsdEpobkkeKVDINmYGHla">08 / 深色模式 · DARK MODE</div>
+      <h2 data-page-node-id="BdosNLVMLwrsNW2iH40rES">深色适配策略</h2>
+      <p data-page-node-id="uww6vdekAd9r0P1GSOrqPz">采用"降低纯黑、保留层次"的方案：背景用近黑蓝灰而非 #000，表面逐级提亮，主色在深底上略微提亮以保证对比度，文字反转但保留冷灰阶。</p>
+    </div>
+    <div class="dark-panel" data-page-node-id="5PPU6wBvAbR4TuYSdTHtqQ">
+      <h3 data-page-node-id="se4hmxLyQ4VFo8DXFDV1lf">深色界面预览</h3>
+      <p data-page-node-id="bQHar7gpntQYC6HpHlF7T9">深底 + 提亮表面 + 提亮主色，避免高饱和刺眼。</p>
+      <div class="dark-show" data-page-node-id="5bFTS1ACJ1ECSa36ASkSPt">
+        <div class="dark-card" data-page-node-id="GaDJvrpKOVDyFbeMOeBBRV">
+          <div class="t" data-page-node-id="0YYEfYVzu11pnjheX3w4YO">班级群 · 软件工程2401</div>
+          <div class="b" data-page-node-id="74oEknQruYuo54I60gCVH7">12 条新消息 · 深色模式下主色提亮为 brand-5，白字对比度达标。</div>
+          <div class="dark-swatch" data-page-node-id="yPSLKslx2iDEasysWn5bHy">
+            <span class="d" style="background:#0B0D13" data-page-node-id="KDQ6zQmLg7qV51ckiMkGLp"></span>
+            <span class="d" style="background:#14171F" data-page-node-id="Txjasy7cPPVjdZDrVocRCc"></span>
+            <span class="d" style="background:#1C2029" data-page-node-id="icpOvSYIfOtOFGj3MgOiMN"></span>
+            <span class="d" style="background:#2A2F3A" data-page-node-id="LlZhMYg7DXDgT9qLpGAoHq"></span>
+            <span class="d" style="background:#6687FF" data-page-node-id="QksAeYi9o2SBZiLqH26GJg"></span>
+          </div>
+        </div>
+        <div class="dark-card" data-page-node-id="CioMnffS35721IRRsGrpnj">
+          <div class="t" data-page-node-id="FazFaMq8gZgagXPrBHtUDL">特别关注 · 置顶话题</div>
+          <div class="b" data-page-node-id="Hyd7id1UoxG85DLHc5gwVT">珊瑚橙在深底上略提亮（coral-4），未读标记更醒目且不刺眼。</div>
+          <div class="dark-swatch" data-page-node-id="g17lPbEdBjO382mvQg7zAY">
+            <span class="d" style="background:#FF8A6B" data-page-node-id="e1lulHqbeMY2GAPshHjzfm"></span>
+            <span class="d" style="background:#1FBFA6" data-page-node-id="M2cv5AzblbwvYmwgtO0CBz"></span>
+            <span class="d" style="background:#E34D59" data-page-node-id="JHz2TekH3aQGupuJ1drLum"></span>
+            <span class="d" style="background:#E8EAF0" data-page-node-id="4c2Oi7Rfa2KwCLT3DGJHPt"></span>
+            <span class="d" style="background:#9AA0B0" data-page-node-id="eS0fAaoS3t1mTkf0jHt4hI"></span>
+          </div>
+        </div>
+      </div>
+      <div class="dark-mapping" data-page-node-id="Af52OFNw54p6ZKCctTCkAb">
+        <b data-page-node-id="8bQTkcvXBeCpISobzEnTFr">关键映射对照：</b><br data-page-node-id="A2dFgxalu7NIw0cEhM3Gpx">
+        浅色背景 <code data-page-node-id="BS9ABl9CohzK2CH9bLxemk">g-1 #FFFFFF</code> → 深色基底 <code data-page-node-id="d8wea2eauFdiQezDd90FjP">#0B0D13</code> / 表面 <code data-page-node-id="DuiB9L83KDoVqQDrfdfxuF">#14171F</code> / 浮起 <code data-page-node-id="RQzPSHJT2ceKizquXlOJoY">#1C2029</code><br data-page-node-id="aE8kehJUmD9UzoYEZLZEST">
+        浅色边框 <code data-page-node-id="5JbDVIuKskTDfF0BfHGkXK">g-4/g-5</code> → 深色边框 <code data-page-node-id="XsS0nKXCGLzloM4Sc4rGFF">#2A2F3A</code><br data-page-node-id="793ZZQHRwm7tBm8rava25i">
+        浅色标题 <code data-page-node-id="y8njeam0BmCaPJD4db54PZ">g-12 #1A1D26</code> → 深色文字 <code data-page-node-id="MNzr4856WvEV786ER8AXzJ">#E8EAF0</code> / 次级 <code data-page-node-id="thQgp3bwFsQUdHhOeLwb5E">#9AA0B0</code><br data-page-node-id="QUh8HIx5Uch4jrJy5H6MiY">
+        主色 <code data-page-node-id="EcP5lFBQKQjCCNOgcogDQG">brand-7 #2E5DFF</code> → 深色主按钮 <code data-page-node-id="fq5NhGRP2EZZi5UFFirDf9">brand-5 #6687FF</code>（白字），链接 <code data-page-node-id="Nii8WEBWWFro4dGkCrRd99">brand-4 #8FA7FF</code><br data-page-node-id="kbvaBdGDtDwP2nLdc8DFrz">
+        功能色浅底（success-bg 等）→ 深色下改用 16% 透明度同色填充，文字用正常色提亮一档
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 无障碍 -->
+  <section data-page-node-id="HcNq2Jxgbge09yV2h0BA2w">
+    <div class="sec-head" data-page-node-id="gq8M0QBQac07avmx7kNiYe">
+      <div class="num" data-page-node-id="lLzR8mULbhTLjfCnatm9X6">09 / 无障碍 · ACCESSIBILITY</div>
+      <h2 data-page-node-id="BLz7L74mcrkq2kXnt8cJ24">对比度核验（WCAG AA）</h2>
+      <p data-page-node-id="PdxDhdwW0J75MSkJzsFppw">关键文字 / 背景组合对比度实测。正文目标 ≥ 4.5:1，大字（≥18px 或 ≥14px 粗体）≥ 3:1。低于阈值的色阶仅用于装饰、禁用态或大字号。</p>
+    </div>
+    <table class="a11y" data-page-node-id="zmwE06JtvAtSngAM1c3i6I">
+      <thead data-page-node-id="WgGvVAyOU8on1OwwW90DYC"><tr data-page-node-id="zEELufZkOfoiRFvRGFCoRD"><th data-page-node-id="C8ZiiyPfe1Dgm0oh3j45f4">前景 / 背景</th><th data-page-node-id="FuCo1uFWQj0StPbdcfvGRX">对比度</th><th data-page-node-id="1GPU28ZzTuj4xcAA8Xr1MT">结论</th><th data-page-node-id="0Ye8mMNgd50lHxZ0oYWa0m">说明</th></tr></thead>
+      <tbody data-page-node-id="oNWn3Z18QLUyI4OpOs14UF">
+        <tr data-page-node-id="A74NURsGTx8q2P8y4MWRF8"><td class="mono" data-page-node-id="Xa56sVQxw35Ysq7WNHZ8si">brand-7 #2E5DFF / 白</td><td class="mono" data-page-node-id="b7IbzWWsRWDnyB9uNLjP6x">5.07:1</td><td data-page-node-id="8clDjYOElcV04xPNTFCkG0"><span class="badge pass" data-page-node-id="tpM3F3WnSu3kGuQ401cSeB">PASS AA</span></td><td data-page-node-id="CfexD2BZAT1uPbGiAB9VFW">可作小号链接文字</td></tr>
+        <tr data-page-node-id="ukmAGtD7laWpqqKpjvvq22"><td class="mono" data-page-node-id="uRo4erFIYHOPhlDkp5iNqZ">brand-9 #16339F / 白</td><td class="mono" data-page-node-id="zFDSHBPfXXgnflbOopSMYe">9.6:1</td><td data-page-node-id="Qce4fWoSfZczR050j8VhED"><span class="badge pass" data-page-node-id="1saoRDOullvsx65q5cgvaO">PASS AAA</span></td><td data-page-node-id="T8CukNnRKiGqJETKY9Bt0S">深蓝文字首选</td></tr>
+        <tr data-page-node-id="siRjgXP5J3RvPR8bdp8Kgk"><td class="mono" data-page-node-id="TJYCI6fI6OmaMmnZ4PGvsF">g-12 #1A1D26 / 白</td><td class="mono" data-page-node-id="KJAC8nPcbHR8oP0LbMNfiQ">16.3:1</td><td data-page-node-id="GIqRmzq69aBdX9Jdwokw7X"><span class="badge pass" data-page-node-id="3QGjA16ZBEgbg8IBWzLufH">PASS AAA</span></td><td data-page-node-id="DdV6P1nCin2UV8rXyHs36V">标题正文首选</td></tr>
+        <tr data-page-node-id="1aNCl9oJ1WFTObGl8ZhrUC"><td class="mono" data-page-node-id="yM1bAiVQpaoeEBhI8IMzC9">g-9 #5A6072 / 白</td><td class="mono" data-page-node-id="avniJbqOML93eRUkbMAjt8">6.26:1</td><td data-page-node-id="zK5ISrBLk9QSmVGVkgVkny"><span class="badge pass" data-page-node-id="mge22Wr2XpTNKRQ2M1SM4Q">PASS AA</span></td><td data-page-node-id="Fe2W8eyHflnJ45dffK39pK">正文次级</td></tr>
+        <tr data-page-node-id="LAdF5LFQmKpSwNB7teI1E0"><td class="mono" data-page-node-id="POMVKkhloJ8jGFBYrKC51L">g-8 #7A8194 / 白</td><td class="mono" data-page-node-id="hVte5kDDtBNOvE3IllATGC">3.83:1</td><td data-page-node-id="KGGoH6qnJO553oErWdP6rp"><span class="badge warn" data-page-node-id="q2l9kQt5ZhOeIdQzdfBczT">仅大字</span></td><td data-page-node-id="nbD94ubPqwDRtTaQ7o2BEb">≥18px 或辅助说明，勿作小号正文</td></tr>
+        <tr data-page-node-id="RKrt22aKNIooWZYEUNhrEF"><td class="mono" data-page-node-id="Ow5S4uB8qPthxIjiYHgxhQ">g-7 #9AA0B0 / 白</td><td class="mono" data-page-node-id="Mk2wPtoH4d6He5EhhICeLd">2.6:1</td><td data-page-node-id="tt7YsYeHsqkptdtfS8awqw"><span class="badge fail" data-page-node-id="TQNp9ojrLnVI7RtzqLL2Sh">禁用文字</span></td><td data-page-node-id="hfjxyjIYI9xYQI9dCkzqoJ">仅占位符 / 禁用态 / 装饰</td></tr>
+        <tr data-page-node-id="iZ9UcvNgOiCRUeCP7WbJrS"><td class="mono" data-page-node-id="NRyy9SdLjdE4zNi6XDz1E8">白 / brand-7 #2E5DFF</td><td class="mono" data-page-node-id="WoyFA8NGKO0npWjLM1Djnu">5.07:1</td><td data-page-node-id="ZAE98DbAmHW5WZSC4JXpBZ"><span class="badge pass" data-page-node-id="a0dWaTL43WG9fzd54GPAoZ">PASS AA</span></td><td data-page-node-id="2U4mZzRMHeQ5kRb0uzlygY">主按钮白字达标</td></tr>
+        <tr data-page-node-id="tlRhmic3zXlxGVcAIgdS2c"><td class="mono" data-page-node-id="NlA9JyKlwHXhcXczYaACBK">success-tx #0E7A47 / success-bg</td><td class="mono" data-page-node-id="KwSEYFs0cvJzffUfSPaaMG">5.4:1</td><td data-page-node-id="pGtzgh2Ibi1M8NNqdkJQzw"><span class="badge pass" data-page-node-id="E9DytDvgXdcPyw1FQi7V1u">PASS AA</span></td><td data-page-node-id="TuNSn6nerguQdEVGQVoK8F">成功标签文字</td></tr>
+        <tr data-page-node-id="Yww8nTzAmPUmrm14jCmBJM"><td class="mono" data-page-node-id="9yIDTvAd9M1f1n8OL9dwLo">error-tx #B4231C / error-bg</td><td class="mono" data-page-node-id="kaH1iDUe0BhjlPjxzg0im6">5.9:1</td><td data-page-node-id="10YxThrP13h0toqdOmP4nX"><span class="badge pass" data-page-node-id="SXcguzUYulqATwmGdZk4mf">PASS AA</span></td><td data-page-node-id="KYtNefGv2Ojw1JMkDS1Pc5">错误标签文字</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10 字体 -->
+  <section style="border-bottom:none" data-page-node-id="mCVQB1BrxGy3h8Z8DHbntu">
+    <div class="sec-head" data-page-node-id="lt7B9WjnlhAu6kv97BJGZ7">
+      <div class="num" data-page-node-id="CMNOHsJtK1gb8u4bWX4DF0">10 / 英文字体 · TYPOGRAPHY</div>
+      <h2 data-page-node-id="lRF9AVH6sdjVq4N1NBsxNl">中英混排与英文适配</h2>
+      <p data-page-node-id="38tE5pyy3jcHDbWwRSU912">界面以中文为主、英文 / 数字（学号、HEX、token）混排。采用"西文无衬线 + 中文无衬线"双栈，等宽字体专用于代码 / 色值，确保数字对齐与可读性。</p>
+    </div>
+    <div class="font-note" data-page-node-id="XrqkSwqLDU0T9oGDa28MbA">
+      <div class="lab" style="font-size:12px;color:var(--g-7)" data-page-node-id="kPbmoJTIvry2Lb3I5VIP8F">推荐字体栈</div>
+      <div class="stack" data-page-node-id="lTzpT9jyFhHckaIA6e3qFj">font-family: "Inter", "Noto Sans SC", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;</div>
+      <div class="font-sample" data-page-node-id="X33UG6twNyLVAyc03HCECW">
+        <div class="fs" data-page-node-id="W0OmfJMAxhGbQH9Zt3yCHm">
+          <div class="lab" data-page-node-id="jmRTEjAGx2tj8gQQKI7err">西文 · Inter（Body / UI）</div>
+          <div class="big" style="font-family:var(--font-lat)" data-page-node-id="dViR7xpOJFEVQajpETABmi">CampusTalk 2401</div>
+          <div class="small" data-page-node-id="UXReBve4uA9Ya5Zj3T4frK">Aa Bb Cc · 0123456789 · #2E5DFF · rgb(46,93,255)</div>
+        </div>
+        <div class="fs" data-page-node-id="z3rGaJe7mAuNdHmcH8PLng">
+          <div class="lab" data-page-node-id="B4E8uIU1HwJr2b9XJksrvc">中文 · Noto Sans SC</div>
+          <div class="big" style="font-family:var(--font-cjk)" data-page-node-id="A2IUrRE0UaZOBO3iLY6oP6">校园青蓝 配色</div>
+          <div class="small" data-page-node-id="goSJyDSo1SOxaPPGBB2FRH">字重 400 / 500 / 600 / 700 齐备，标题用 700、正文 400。</div>
+        </div>
+        <div class="fs" data-page-node-id="N47OHoGnV1ROAbCm8B6QgO">
+          <div class="lab" data-page-node-id="LJuh5P6i5fGJosCIYpLahW">等宽 · JetBrains Mono（色值 / Token）</div>
+          <div class="big mono" style="font-size:24px" data-page-node-id="l1CqfvarPKFKZqBfHgEGrb">#2E5DFF</div>
+          <div class="small" data-page-node-id="Zg1QL67RbTwBBDjuRErclL">tabular-nums 开启，HEX / RGB / 刻度编号纵向对齐。</div>
+        </div>
+      </div>
+      <div class="btn-row" style="font-size:12px;color:var(--g-8);margin-top:8px" data-page-node-id="BSC1fXlrnflagVDfvGSw1c">
+        <span data-page-node-id="KlklIK3Cgn9H6RSGhwGr0f">英文适配要点：① 西文置前，中文回退，避免中文被英文字体强制替换；② 数字 / 色值用品允等宽字体保证对齐；③ 行高中文 1.6、西文 1.4，混排取 1.6；④ 字重只用 400/500/600/700 四档，跨语言一致。</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer data-page-node-id="zdC91lNpaPOOumqs3DIkAf">CampusTalk Design System · Color v1.0 · 2026-09-09 · 本页为独立交付物，可直接用于研发与走查</footer>
+
+<script>
+  // 主色阶注入
+  const brand=[
+    ["brand-1","#EEF2FF"],["brand-2","#DBE4FF"],["brand-3","#B9C9FF"],["brand-4","#8FA7FF"],
+    ["brand-5","#6687FF"],["brand-6","#3F6BFF"],["brand-7","#2E5DFF"],["brand-8","#1F45D8"],
+    ["brand-9","#16339F"],["brand-10","#0E2370"]
+  ];
+  const bs=document.getElementById("brandScale");
+  brand.forEach(([n,h])=>{
+    const hex=h.replace('#','');
+    const r=parseInt(hex.substr(0,2),16),g=parseInt(hex.substr(2,2),16),b=parseInt(hex.substr(4,2),16);
+    const txtColor=(r*299+g*587+b*114)>550?'#1A1D26':'#fff';
+    const el=document.createElement('div');el.className='s';
+    el.innerHTML=`<div class="c" style="background:${h}"></div><div class="nm">${n}</div><div class="hx" style="color:${txtColor}">${h}</div>`;
+    el.querySelector('.hx').style.marginTop='2px';
+    bs.appendChild(el);
+  });
+
+  // 中性色表注入
+  const neutral=[
+    ["g-1","#FFFFFF","rgb(255,255,255)","页面背景 / 卡片底"],
+    ["g-2","#F7F8FA","rgb(247,248,250)","次级背景 / 区块底"],
+    ["g-3","#F0F2F5","rgb(240,242,245)","悬停底 / 浅填充"],
+    ["g-4","#EAECF0","rgb(234,236,240)","分割线 / 浅边框"],
+    ["g-5","#D8DBE3","rgb(216,219,227)","边框 / 描边"],
+    ["g-6","#C2C7D2","rgb(194,199,210)","强边框 / 占位符"],
+    ["g-7","#9AA0B0","rgb(154,160,176)","三级文字 / 禁用（勿作正文）"],
+    ["g-8","#7A8194","rgb(122,129,148)","次级文字（仅 ≥18px）"],
+    ["g-9","#5A6072","rgb(90,96,114)","正文次级"],
+    ["g-10","#3D4252","rgb(61,66,82)","文字"],
+    ["g-11","#2A2E3A","rgb(42,46,58)","强文字"],
+    ["g-12","#1A1D26","rgb(26,29,38)","标题 / 正文主色"],
+    ["g-13","#12141C","rgb(18,20,28)","深底文字"],
+    ["g-14","#0B0D13","rgb(11,13,19)","深色模式基底"]
+  ];
+  const nb=document.getElementById("neutralBody");
+  neutral.forEach(([n,h,rgb,role])=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><span class="chip" style="background:${h}"></span><span class="mono">${n}</span></td>
+      <td class="mono">${h}</td><td class="mono">${rgb}</td><td><span class="role">${role}</span></td>`;
+    nb.appendChild(tr);
+  });
+</script>
+</body>
+</html>

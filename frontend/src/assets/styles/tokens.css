@@ -1,0 +1,41 @@
+/**
+ * 设计令牌 · Color v1.0（对齐《CampusTalk 配色规范》）
+ *
+ * 全站颜色 / 字体 / 圆角 / 间距只在此定义一次，组件内一律引用变量，
+ * 不得出现硬编码色值——保证七个页面风格统一，也是可维护性验收项。
+ */
+:root {
+  /* Brand · 校园青蓝（10 级） */
+  --brand-1: #eef2ff; --brand-2: #dbe4ff; --brand-3: #b9c9ff; --brand-4: #8fa7ff;
+  --brand-5: #6687ff; --brand-6: #3f6bff; --brand-7: #2e5dff; --brand-8: #1f45d8;
+  --brand-9: #16339f; --brand-10: #0e2370;
+
+  /* Secondary · 青碧（兴趣频道 / AI / bot / 在线） */
+  --teal-1: #e6fbf7; --teal-3: #8fe6d6; --teal-5: #1fbfa6; --teal-6: #149e89; --teal-7: #0e7a69;
+
+  /* Secondary · 珊瑚（未读 / 特别关注 / 置顶） */
+  --coral-1: #fff0ec; --coral-3: #ffb49e; --coral-5: #ff6a45; --coral-6: #e84d26; --coral-7: #c73a14;
+
+  /* Neutral · 冷灰阶 */
+  --g-1: #ffffff; --g-2: #f7f8fa; --g-3: #f0f2f5; --g-4: #eaecf0; --g-5: #d8dbe3;
+  --g-6: #c2c7d2; --g-7: #9aa0b0; --g-8: #7a8194; --g-9: #5a6072; --g-10: #3d4252;
+  --g-11: #2a2e3a; --g-12: #1a1d26; --g-13: #12141c; --g-14: #0b0d13;
+
+  /* Functional 三件套（正常 / 浅底 / 文字） */
+  --success: #1fa463; --success-bg: #e8f7ef; --success-tx: #0e7a47;
+  --warning: #e37318; --warning-bg: #fef3e6; --warning-tx: #b45309;
+  --error: #e34d59;   --error-bg: #fcedec;   --error-tx: #b4231c;
+  --info: #2e5dff;    --info-bg: #eef2ff;    --info-tx: #16339f;
+
+  /* 字体栈：西文置前、中文回退，等宽用于数字 / 色值 */
+  --font-cjk: 'Inter', 'Noto Sans SC', 'PingFang SC', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Noto Sans Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* 圆角与阴影（统一档位） */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --shadow-card: 0 8px 24px -14px rgba(46, 93, 255, 0.4);
+  --shadow-pop: 0 16px 48px -12px rgba(11, 13, 19, 0.25);
+}
